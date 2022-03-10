@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "username": "a",
+      "age": "22",
+      "address": "agfvas",
+      "department": "software",
+      "salary": "13113",
+      "marital": true,
+      "id": 1
+    }
+  ]
+}
