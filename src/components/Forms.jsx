@@ -10,7 +10,6 @@ export const Forms = () => {
     department: "",
     salary: "",
     marital: "",
-    // id: uuid(),
   });
   const [show, setShow] = useState([]);
   useEffect(() => {
@@ -23,11 +22,11 @@ export const Forms = () => {
   };
 
   const handleChange = (e) => {
-    let { id, value, checked, type } = e.target;
+    let { name, value, checked, type } = e.target;
     value = type === "checkbox" ? checked : value;
     setFormdata({
       ...formdata,
-      [id]: value,
+      [name]: value,
     });
   };
   const handleSubmit = (e) => {
@@ -41,7 +40,6 @@ export const Forms = () => {
         department: "",
         salary: "",
         marital: "",
-        // id: uuid(),
       });
     });
   };
@@ -54,7 +52,7 @@ export const Forms = () => {
           Name
           <input
             value={formdata.username}
-            id="username"
+            name="username"
             type="text"
             onChange={handleChange}
             placeholder="enter username"
@@ -64,7 +62,7 @@ export const Forms = () => {
           Age
           <input
             value={formdata.age}
-            id="age"
+            name="age"
             type="number"
             onChange={handleChange}
             placeholder="enter age"
@@ -74,7 +72,7 @@ export const Forms = () => {
           Address
           <input
             value={formdata.address}
-            id="address"
+            name="address"
             type="text"
             onChange={handleChange}
             placeholder="enter address"
@@ -85,7 +83,7 @@ export const Forms = () => {
         <label>
           Department
           <select
-            id="department"
+            name="department"
             onChange={handleChange}
             value={formdata.department}
           >
@@ -99,7 +97,7 @@ export const Forms = () => {
           Salary
           <input
             value={formdata.salary}
-            id="salary"
+            name="salary"
             type="number"
             onChange={handleChange}
             placeholder="enter salary"
@@ -111,7 +109,7 @@ export const Forms = () => {
             type="checkbox"
             checked={formdata.marital}
             onChange={handleChange}
-            id="marital"
+            name="marital"
           />
         </label>
         <br />
@@ -133,13 +131,13 @@ export const Forms = () => {
         <tbody>
           {show.map((e) => {
             return (
-              <tr>
-                <td key={e.id}>{e.username}</td>
-                <td key={e.id}>{e.age}</td>
-                <td key={e.id}>{e.address}</td>
-                <td key={e.id}>{e.department}</td>
-                <td key={e.id}>{e.salary}</td>
-                <td key={e.id}>{e.marital ? "True" : "False"}</td>
+              <tr key={e.id}>
+                <td>{e.username}</td>
+                <td>{e.age}</td>
+                <td>{e.address}</td>
+                <td>{e.department}</td>
+                <td>{e.salary}</td>
+                <td>{e.marital ? "True" : "False"}</td>
               </tr>
             );
           })}
